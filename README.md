@@ -10,7 +10,7 @@ This plugin requires xxd to be installed
 
 ### Installation
 
-To install the plugin do the following depending on your plugin manager
+To install the plugin do the following depending on your plugin manager:
 
 #### Vundle
 
