@@ -24,10 +24,10 @@ au BufWritepost * call HexPostWrite()
 function! HexToggle()
 	if b:is_hex
 		let b:is_hex = 0
-		: silent! %!xxd -r
+		: %!xxd -r
 	else
 		let b:is_hex = 1
-		: silent! %!xxd
+		: %!xxd
 	endif
 endfunction	
 
@@ -35,13 +35,13 @@ function! HexWrite()
 	if b:is_hex
 		let b:is_hex = 0
 		let b:was_hex = 1
-		: silent! %!xxd -r
+		: %!xxd -r
 	endif
 endfunction
 
 function! HexPostWrite()
 	if b:was_hex
-		: silent! %!xxd
+		: %!xxd
 		let b:was_hex = 0
 	endif
 endfunction
