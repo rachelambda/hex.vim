@@ -17,9 +17,9 @@ au BufReadPost,BufNewFile * let b:is_hex = 0
 au BufReadPost,BufNewFile * let b:was_hex = 0
 
 " Restore to raw data before writing
-au BufWritepre * call s:write()
+au BufWritepre * call HexWrite()
 " Go back to hex editing after writing if needed
-au BufWritepost * call s:postwrite()
+au BufWritepost * call HexPostWrite()
 
 function! HexToggle()
 	if b:is_hex
@@ -31,7 +31,7 @@ function! HexToggle()
 	endif
 endfunction	
 
-function! s:prewrite()
+function! s:HexWrite()
 	if b:is_hex
 		let b:is_hex = 0
 		let b:was_hex = 1
@@ -39,7 +39,7 @@ function! s:prewrite()
 	endif
 endfunction
 
-function! s:postwrite()
+function! s:HexPostWrite()
 	if b:was_hex
 		:%!xxd
 		let b:was_hex = 0
