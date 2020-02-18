@@ -31,7 +31,7 @@ function! HexToggle()
 	endif
 endfunction	
 
-function! s:HexWrite()
+function! HexWrite()
 	if b:is_hex
 		let b:is_hex = 0
 		let b:was_hex = 1
@@ -39,7 +39,7 @@ function! s:HexWrite()
 	endif
 endfunction
 
-function! s:HexPostWrite()
+function! HexPostWrite()
 	if b:was_hex
 		:%!xxd
 		let b:was_hex = 0
