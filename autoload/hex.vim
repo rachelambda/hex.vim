@@ -19,19 +19,27 @@
 "  0. You just DO WHAT THE FUCK YOU WANT TO.
 "
 
-if exists("g:loaded_hexvim")
-  finish
-endif
-let g:loaded_hexvim = 1
+function! hex#ToggleHex()
+	if b:is_hex
+		let b:is_hex = 0
+		: %!xxd -r
+	else
+		let b:is_hex = 1
+		: %!xxd
+	endif
+endfunction	
 
-" Alias the hextoggle function to a hextoggle command
-command HexToggle call hex#ToggleHex()
+function! hex#SafeWrite()
+	if b:is_hex
+		let b:is_hex = 0
+		let b:was_hex = 1
+		: %!xxd -r
+	endif
+endfunction
 
-" Defualt each buffer to not be hex
-au BufReadPost,BufNewFile * let b:is_hex = 0
-au BufReadPost,BufNewFile * let b:was_hex = 0
-
-" Restore to raw data before writing
-au BufWritepre * call hex#SafeWrite()
-" Go back to hex editing after writing if needed
-au BufWritepost * call hex#PostWrite()
+function! hex#PostWrite()
+	if b:was_hex
+		: %!xxd
+		let b:was_hex = 0
+	endif
+endfunction
