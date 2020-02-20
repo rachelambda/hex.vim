@@ -10,4 +10,4 @@ Commands:
 	Toggles the current buffer between normal and hex view
 ```
 
-This plugin doesn't have any settings
+This plugin does not have any settings

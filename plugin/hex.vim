@@ -1,7 +1,7 @@
 " Vim global plugin for editing files as hex
 "
 " Last Change:  2020 Feb 19
-" Maintainer:   depsterr <dragonvale09@gmail.com>
+" Maintainer:   depsterr <depsterr@protonmail.com>
 " License:
 "
 " DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
