@@ -1,10 +1,6 @@
 " Vim global plugin for editing files as hex
 "
-<<<<<<< HEAD
 " Last Change:  2020 Mar 05
-=======
-" Last Change:  2020 Feb 25
->>>>>>> b7fe1b2ef0c7d1fd2bfe069c4ad66ec078a9d080
 " Maintainer:   depsterr <depsterr@protonmail.com>
 " License:
 "
@@ -24,12 +20,6 @@
 "
 
 function! hex#ToggleHex()
-<<<<<<< HEAD
-=======
-	if !exists("b:ishex")
-		return
-	endif
->>>>>>> b7fe1b2ef0c7d1fd2bfe069c4ad66ec078a9d080
 	if b:is_hex
 		let b:is_hex = 0
 		: %!xxd -r
