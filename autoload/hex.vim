@@ -1,6 +1,6 @@
 " Vim global plugin for editing files as hex
 "
-" Last Change:  2020 Feb 22
+" Last Change:  2020 Mar 05
 " Maintainer:   depsterr <depsterr@protonmail.com>
 " License:
 "
@@ -20,9 +20,6 @@
 "
 
 function! hex#ToggleHex()
-	if !exists("b:ishex")
-		let b:is_hex = 0
-	endif
 	if b:is_hex
 		let b:is_hex = 0
 		: %!xxd -r
@@ -33,9 +30,6 @@ function! hex#ToggleHex()
 endfunction	
 
 function! hex#SafeWrite()
-	if !exists("b:ishex")
-		return
-	endif
 	if b:is_hex
 		let b:is_hex = 0
 		let b:was_hex = 1
@@ -44,9 +38,6 @@ function! hex#SafeWrite()
 endfunction
 
 function! hex#PostWrite()
-	if !exists("b:ishex")
-		return
-	endif
 	if b:was_hex
 		: %!xxd
 		let b:was_hex = 0
